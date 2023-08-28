@@ -1,0 +1,275 @@
+*
+*::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.anavlinks {
+    /* ... (Your existing styles) */
+    position: relative;
+    transition: color 0.3s;
+    font-family: 'Brush Script MT', cursive;
+    font-weight: bolder;
+    color: #9e0177;
+  
+    transition: color 0.3s;
+}
+
+.anavlinks:before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #333; /* Change this to the underline color */
+    transition: width 1.5s ease;
+}
+
+.anavlinks:hover {
+    color: #333; /* Change this to the hover link color */
+}
+
+.anavlinks:hover:before {
+    width: 100%;
+}
+
+.anav {
+    position: fixed;
+    width: 100vw;
+    display: grid;
+    align-items: center;
+    padding: 0.8rem 2rem;
+
+    /* Individual value for the menu icon, then auto size the rest */
+    grid-template-columns: 60px repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+
+    /* This is the layout for the navbar in expanded mobile mode */
+    grid-template-areas:
+        "collapser brand"
+        "collapsable collapsable";
+
+    border-bottom: 1px solid #0005;
+    background-color: transparent;
+    transition: background-color 0.3s, border-bottom-color 0.3s;
+}
+
+.anav__collapser {
+    grid-area: collapser;
+    width: 30px;
+    transition: transform 0.3s;
+    transform: scale(1.1);
+
+}
+
+a {
+    /* color: white; */
+    text-decoration: none;
+    color: inherit;
+}
+
+.anav__brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+    grid-area: brand;
+}
+
+.anav__brand img{
+    width: 40px;
+    height: 40px;
+}
+
+.anav__cta {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.anav__collapsable {
+    display: grid;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    grid-area: collapsable;
+
+    /* This is what hides the content */
+    overflow: hidden;
+    max-height: 0;
+
+    transition: padding 500ms ease, max-height 250ms ease;
+}
+
+.nav--expanded .anav__collapsable {
+    max-height: 500px; /* This is what shows the content */
+    margin-top: 1rem;
+    padding: 2rem 0;
+}
+
+
+/* for button */
+.btn {
+    border: none; /* Remove borders */
+    color: white; /* Add a text color */
+    padding: 14px 28px; /* Add some padding */
+    cursor: pointer; /* Add a pointer cursor on mouse-over */
+    transition: width 2s;
+}
+
+.success {background-color: #04AA6D;} /* Green */
+.success:hover {background-color: #46a049;}
+
+.info {background-color: #2196F3;} /* Blue */
+.info:hover {background: #0b7dda;}
+
+.warning {background-color: #ff9800;} /* Orange */
+.warning:hover {background: #e68a00;}
+
+.danger {background-color: #f44336;} /* Red */
+.danger:hover {background: #da190b;}
+
+.default {background-color: #e7e7e7; color: black;} /* Gray */
+.default:hover {background: #ddd;}
+/* button ends here */
+
+
+/* Desktop mode styles */
+@media (min-width: 700px) {
+    .anav {
+        /* Layout for nav in desktop mode */
+        grid-template-columns: repeat(4, auto);
+        grid-template-areas: "brand . collapsable collapsable";
+    }
+
+    .anav__collapser {
+        display: none;
+    }
+
+    .anav__collapsable {
+        max-height: 500px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .nav--expanded .anav__collapsable,
+    .anav__cta {
+        padding: 0;
+        margin: 0;
+    }
+
+    .anav__collapsable {
+        display: flex;
+        gap: 2rem;
+    }
+
+    .anav__cta {
+        margin-left: 1.5rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    html {
+        font-size: 1.25rem;
+    }
+}
+
+.cta {
+    font-size: 1.1rem;
+    border-radius: 2em;
+    padding: 0.5em 1em;
+    border: 1px solid #0005;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta--bold {
+    background-color: #0f0f0f;
+    color: white;
+    font-weight: bold;
+}
+/* nav bar end here */
+
+.banner{
+    background: linear-gradient(rgba(0,0,0,0.5),#72626233),url(image/dish-restaurant-dining-food.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+.text{
+    text-align: center;
+    color: white;
+    padding-top: 180px;
+   
+  
+}
+.bannertext{
+     font-family: "Hi Melody";
+     font-size: 100px;
+}
+.txt2{
+    font-family: "Amaranth";
+    font-size: 20;
+    color: #0f0f0f;
+    margin-bottom: 30px;
+}
+  /*banner section end here  */
+
+.section1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 90%;
+}
+.section1text{
+    float: right;
+    /* margin-right: 50px; */
+    margin-top: 100px;
+    text-align: left;
+}
+.sectionimg{
+    width: 150%;
+    height: 500px;
+    margin-left: 20px;
+}
+/* sections ends here */
+
+/* footer starts here */
+.footer {
+   background-color: snow;
+   color: #fff;
+   /* padding: 30px 0; */
+  
+}
+  
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+    background-color: black;
+    margin-top: 100px;
+    height: 30vh;
+   
+}
+  
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+  
+.footer-section h3 {
+    color: #fff5f5;
+    margin-bottom: 10px;
+}
+  
+.footer-section p {
+    color: #fff1f1;
+}
+  
+.footer-bottom {
+    background-color: rgb(81, 80, 80);
+    text-align: center;
+    padding: 10px ;
+}
+  /* end of footer */
